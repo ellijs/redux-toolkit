@@ -19,25 +19,25 @@ function App() {
   );
   const customers = useSelector((state: RootState) => state.customer.value);
   const handleAddReservations = () => {
-    if(!reservationNameInput) return;
+    if (!reservationNameInput) return;
     // dispatch the action
     dispatch(addReservation(reservationNameInput));
-    setReservationNameInput("")
+    setReservationNameInput("");
   };
 
   return (
-    <div className="App">
-      <div className="container">
-        <div className="reservation-container">
+    <div className='App'>
+      <div className='container'>
+        <div className='reservation-container'>
           <div>
-            <h5 className="reservation-header">Reservations</h5>
-            <div className="reservation-cards-container">
+            <h5 className='reservation-header'>Reservations</h5>
+            <div className='reservation-cards-container'>
               {reservations.map((name, index) => {
                 return <ReservationCard name={name} index={index} />;
               })}
             </div>
           </div>
-          <div className="reservation-input-container">
+          <div className='reservation-input-container'>
             <input
               value={reservationNameInput}
               onChange={(e) => {
@@ -47,7 +47,7 @@ function App() {
             <button onClick={handleAddReservations}>Add</button>
           </div>
         </div>
-        <div className="customer-food-container">
+        <div className='customer-food-container'>
           {customers.map((customer) => {
             return (
               <CustomerCard
