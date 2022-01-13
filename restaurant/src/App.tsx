@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addReservation } from "./feature/reservationSlice";
+import { addReservation } from "./features/reservationsSlice";
 import { RootState } from "./app/store";
 import ReservationCard from "./components/ReservationCard";
-import CustomerCard from "./components/CustomerCard";
+// import CustomerCard from "./components/CustomerCard";
 
 function App() {
   const dispatch = useDispatch();
 
+  // onChange State for Input
   const [reservationNameInput, setReservationNameInput] = useState("");
 
+  // getting State
   const reservations = useSelector(
     (state: RootState) => state.reservations.value
   );
-  const customers = useSelector((state: RootState) => state.customer.value);
+  // const customers = useSelector((state: RootState) => state.customer.value);
   const handleAddReservations = () => {
+    if(!reservationNameInput) return;
+    // dispatch the action
     dispatch(addReservation(reservationNameInput));
+    setReservationNameInput("")
   };
 
   return (
@@ -43,7 +48,7 @@ function App() {
           </div>
         </div>
         <div className="customer-food-container">
-          {customers.map((customer) => {
+          {/* {customers.map((customer) => {
             return (
               <CustomerCard
                 id={customer.id}
@@ -52,7 +57,7 @@ function App() {
                 key={customer.id}
               />
             );
-          })}
+          })} */}
         </div>
       </div>
     </div>
