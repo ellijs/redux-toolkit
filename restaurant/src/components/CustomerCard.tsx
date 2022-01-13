@@ -14,34 +14,29 @@ function CustomerCard({ id, name, food }: CustomerCardType) {
 
   const handleAddFood = () => {
     dispatch(
-        addFoodToCustomer({
-          id,
-          food: customerFoodInput,
-        })
-      );
-      setCustomerFoodInput("")
-  }
-
+      addFoodToCustomer({
+        id,
+        food: customerFoodInput,
+      })
+    );
+    setCustomerFoodInput("");
+  };
 
   return (
-    <div className="customer-food-card-container">
+    <div className='customer-food-card-container'>
       <h5>{name}</h5>
-      <div className="customer-foods-container">
-        <div className="customer-food">
+      <div className='customer-foods-container'>
+        <div className='customer-food'>
           {food.map((food) => {
             return <p>{food}</p>;
           })}
         </div>
-        <div className="customer-food-input-container">
+        <div className='customer-food-input-container'>
           <input
             value={customerFoodInput}
             onChange={(e) => setCustomerFoodInput(e.target.value)}
           />
-          <button
-            onClick={handleAddFood}
-          >
-            Add
-          </button>
+          <button onClick={handleAddFood}>Add</button>
         </div>
       </div>
     </div>
